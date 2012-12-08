@@ -310,6 +310,7 @@ module Axlsx
       else
         str << "<t>" << value.to_s << "</t>"
       end
+      str.gsub!(/\n/,"&#13;")
       str
     end
 

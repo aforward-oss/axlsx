@@ -360,7 +360,7 @@ class TestWorksheet < Test::Unit::TestCase
     cell_with_newline = "foo\n\r\nbar"
     @ws.add_row [cell_with_newline]
     assert_equal("foo\n\r\nbar", @ws.rows.last.cells.last.value)
-    assert_not_nil(@ws.to_xml_string.index("foo\n\r\nbar"))
+    assert_not_nil(@ws.to_xml_string.index("foo&#13;\r&#13;bar"))
   end
   # Make sure the XML for all optional elements (like pageMargins, autoFilter, ...)
   # is generated in correct order.
